@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskar Shrestha | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="header">
+  <div class="container">
+    <h1 class="logo">Sanskar</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="particles"></div>
+  <div class="hero-content">
+    <h2>Hello, I'm <span>Sanskar Shrestha</span></h2>
+    <p class="typing"></p>
+    <a href="#projects" class="btn neon-btn">See My Work</a>
+  </div>
+  <div class="hero-image">
+    <img src="sanskarpp.JPG" alt="Sanskar Shrestha">
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="container about-container fade-up">
+    <div class="about-image">
+      <img src="sanskarpp.JPG" alt="About Me">
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I'm <strong>Sanskar Shrestha</strong>, a passionate frontend developer and UI/UX designer. I create <strong>modern, responsive, and animated websites</strong> that bring ideas to life. I enjoy coding, designing, and learning new technologies. My goal is to build visually stunning websites with smooth interactions and top performance.</p>
+      <ul>
+        <li>💻 Frontend Development (HTML, CSS, JS, React)</li>
+        <li>🎨 UI/UX Design with attention to detail</li>
+        <li>⚡ Web Animations & Interactions</li>
+        <li>🚀 Performance Optimization & SEO friendly sites</li>
+        <li>📚 Always learning new web technologies</li>
+        <li>🌐 Passionate about creating impactful web experiences</li>
+      </ul>
+      <a href="#contact" class="btn neon-btn">Hire Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+  <h2 class="section-title fade-up">My Projects</h2>
+  <div class="projects-container">
+    <div class="project-card fade-up">
+      <img src="project1.jpg" alt="Project 1">
+      <div class="project-info">
+        <h3>Project One</h3>
+        <p>A responsive website with modern UI and smooth animations.</p>
+      </div>
+    </div>
+    <div class="project-card fade-up">
+      <img src="project2.jpg" alt="Project 2">
+      <div class="project-info">
+        <h3>Project Two</h3>
+        <p>An interactive portfolio website built using HTML, CSS & JS.</p>
+      </div>
+    </div>
+    <div class="project-card fade-up">
+      <img src="project3.jpg" alt="Project 3">
+      <div class="project-info">
+        <h3>Project Three</h3>
+        <p>A fully animated landing page with smooth scroll effects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact fade-up">
+  <h2 class="section-title">Get In Touch</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn neon-btn">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-up">
+  <p>© 2025 Sanskar Shrestha. All rights reserved.</p>
+</footer>
+
+<!-- Typing Animation Script -->
+<script>
+  const texts = ["Frontend Developer", "UI/UX Designer", "Web Animator"];
+  let count = 0, index = 0, currentText = '', letter = '';
+  (function type(){
+    if(count === texts.length) count = 0;
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+    document.querySelector('.typing').textContent = letter;
+    if(letter.length === currentText.length){
+      setTimeout(()=>{
+        index = 0; count++; type();
+      }, 2000);
+    } else { setTimeout(type, 150);}
+  }());
+</script>
+
+<!-- Scroll Animation Script -->
+<script>
+  const faders = document.querySelectorAll('.fade-up');
+  const appearOptions = {threshold:0.1, rootMargin:"0px 0px -50px 0px"};
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+</body>
+</html>
